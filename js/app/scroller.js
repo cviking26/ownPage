@@ -1,0 +1,6 @@
+App.scroller = {
+    init : function(){
+
+    }
+
+}
