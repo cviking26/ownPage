@@ -15,6 +15,8 @@ header{
   width: 100%;
   padding: 15px;
   position: fixed;
+  top: 0;
+  z-index: 9;
   h1{
 	text-transform: uppercase;
 	font-size:	46px;
@@ -42,6 +44,25 @@ header{
 	  span{
 		color: @blue;
 	  }
+	}
+
+  }
+}
+
+/*	MAIN	*/
+main{
+  @pep-container-color: #f3eee6;
+  @pep-color: #f5b188;
+  margin-top: 75px;
+
+  #main{
+	background: @pep-container-color;
+	width: 500px;
+	height: 300px;
+
+	.bubble{
+	  background: @pep-color;
+	  height: 100px; width: 100px;
 	}
 
   }
