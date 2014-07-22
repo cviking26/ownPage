@@ -21,11 +21,13 @@ App.scroller = {
 	},
 
 	getContent : function(reqBubble){
+		reqBubble = reqBubble.toString();
 		$.ajax({
-			url 	:	'data.php',
-			params	:	reqBubble,
-			type	:	'POST',
-			success	:	function(data){
+			url 		:	'data.php',
+			params		:	reqBubble,
+			type		:	'POST',
+			success		:	function(data){
+				console.log('ajax-data: '+data);
 				App.scroller.showOverlay(data);
 			}
 		});

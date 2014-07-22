@@ -8,5 +8,5 @@
 
 var_dump($_POST);
 if(isset($_POST['reqBubble'])){
-	return "ERFOLG";
+	echo "ERFOLG";
 }
