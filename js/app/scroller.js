@@ -4,7 +4,7 @@ App.scroller = {
 			useCSSTranslation: false,
 			constrainTo: 'parent'
 		});
-		this.overlay();
+		App.scroller.overlay();
     },
 
 	overlay : function(){
@@ -17,17 +17,17 @@ App.scroller = {
 	},
 
 	showOverlay : function(data){
-			console.log(data);
+			$('#content-wrap').css('display', 'block');
+			$('#content-inner').html(data);
 	},
 
 	getContent : function(reqBubble){
 		reqBubble = reqBubble.toString();
 		$.ajax({
 			url 		:	'data.php',
-			params		:	reqBubble,
+			data		:	{'reqBubble' : reqBubble},
 			type		:	'POST',
 			success		:	function(data){
-				console.log('ajax-data: '+data);
 				App.scroller.showOverlay(data);
 			}
 		});
