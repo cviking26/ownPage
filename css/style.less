@@ -2,52 +2,134 @@
 
 @white: #ecf0f1;
 @blue: #2c3e50;
-
+@darkgrey: #c0392b;
+@font: 'Noticia Text', serif;
+@page-width: 900px;
 
 /*	FONTS	*/
 @import url(http://fonts.googleapis.com/css?family=Lemon);
+@import url(http://fonts.googleapis.com/css?family=Noticia+Text);
+@import url(http://fonts.googleapis.com/css?family=Alex+Brush);
+
 /*TODO download font for local using, check md5 compiling for better usage*/
 
 /*	END FONTS	*/
 
-/*	HEADER	*/
-header{
-  background-color: @blue;
-  height: 75px;
-  width: 100%;
-  padding: 15px;
-  position: fixed;
-  top: 0;
-  z-index: 9;
-  h1{
-	text-transform: uppercase;
-	font-size:	46px;
-	color: @white;
-	font-family: 'Lemon', Arial;
-  }
-  #contactMe{
+/* DEFAULTS */
+body{
+  background: url('../img/crossword.png');
+}
 
-	height: 37px;
-	width: 110px;
-	position: absolute;
-	right: 30px;
-	top: 30px;
-	//background-color: @white;
-	border-radius: 5px;
-	border: 1px solid @white;
-	padding-top: 7px;
-	text-align: center;
-	span{
-	  color: @white;
-	  font-family: 'Lemon', Arial;
-	}
-	&:hover{
-	  background-color: @white;
-	  span{
-		color: @blue;
+p{
+  margin: 0;
+  padding: 0;
+}
+
+#welcome-banner {
+  border-top: 2px solid;
+  font-size: 50px;
+  padding-left: 212px;
+  text-align: center;
+}
+
+/* DEFAULTS END*/
+#moepo{
+  font-family: 'Alex Brush', cursive;
+  font-size: 65px;
+}
+/*	HEADER	*/
+header,
+#welcome{
+  width: @page-width;
+  height: 150px;
+  display: table;
+  padding-top: 10px;
+  margin: 0 auto;
+  .header-left{
+	display: table-cell;
+	vertical-align: middle;
+	width: 440px;
+	text-align: left;
+	.header-left-wrap{
+	  display: table;
+	  .self-picture-top,
+	  .self-picture-bottom{
+		border: 1px solid @blue;
+		background: url('../img/img.jpg') no-repeat;
+		background-size: 100% auto;
+		margin-right: 15px;
+	  }
+	  .self-picture-top{
+		display: block;
+		vertical-align: middle;
+		border-radius: 75px;
+		height: 150px;
+		width: 150px;
+
+	  }
+	  .self-picture-bottom{
+		height: 300px;
+		width: 300px;
+		border-radius: 150px;
+	  }
+	  .header-left-span-wrap{
+		display: table-cell;
+		vertical-align: middle;
+
+		span{
+		  font-size: 46px;
+		  color: @blue;
+		  font-family: @font;
+		  line-height: 34px;
+		}
 	  }
 	}
+  }
+  .header-right{
 
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+	opacity: 0;
+	nav{
+	  float: right;
+	  text-align: right;
+	  width: 145px;
+		ul{
+		  font-family: Arial, Verdana;
+		  font-size: 20px;
+		  margin: 0;
+		  padding: 0;
+		  list-style: none;
+		  	li{
+			  /*line-height: 26px;*/
+			  border-right: 2px solid @blue;
+			  padding-right: 5px;
+			  &:hover{
+				border-color: @darkgrey;
+				a{
+				  color: @darkgrey;
+				}
+			  }
+			}
+			li a{
+			  color: @blue;
+			  font-family: @font;
+			  text-decoration: none;
+			}
+		}
+	}
+  }
+}
+header{
+  .header-left-span-wrap{
+	padding: 0 0 0 10px;
+  }
+}
+#welcome{
+  .header-left-span-wrap{
+	padding: 0 10px 0 0;
+	text-align: right;
   }
 }
 
@@ -55,77 +137,37 @@ header{
 main{
   @pep-container-color: #f3eee6;
   @pep-color: #f5b188;
-  margin-top: 75px;
-
-  h2{
-	text-transform: uppercase;
-	font-size:	24px;
-	color: @white;
-	font-family: 'Lemon', Arial;
-  }
-
+  display: none;
   #main{
 	//background: @pep-container-color;
-	width: 100%;
-	height: 724px;
-
-
-	.bubble{
-	  @size: 300px;
-	  background: @blue;
-	  height: @size;
-	  width: @size;
-	  border-radius: @size;
-	  opacity: 0.9;
-	  border-width: 2px;
-	  border-style: solid;
-	  border-color: #1d2f41;
-
-	  &#contact-bubble{
-		position: absolute;
-		top: 50px;
-		left: 150px;
-		display: table;
-	  }
-	  &#about-bubble{
-		position: absolute;
-		top: 240px;
-		right: 80px;
-	  }
-	  &#doing-bubble{
-		position: absolute;
-		top: 140px;
-		left: 110px;
-	  }
-	  .content-wrap{
-		width: 100%;
-		height: 100%;
-		display: table-cell;
-		text-align: center;
-		vertical-align: middle;
-	  }
-	}
-
-	#content-wrap{
-	  display: none;
-	  height: 100%;
-	  width: 100%;
+	width: @page-width;
+	height: 400px;
+	margin: 0 auto;
+	#blub{
+	  height: 700px;
+	  width: 700px;
 	  position: absolute;
-	  background-color: lightgrey;
-	  opacity: 0.7;
-	  /*OPACITY IN BG*/
-
-	  #content-inner{
-		height: 500px;
-		width: 500px;
-		background-color: @blue;
-		opacity: 0.9;
-		margin: 0 auto;
-		margin-top: 50px;
-		border-radius: 25px;
-		z-index: 99;
+	  top: 150px;
+	  background: url('../img/img.jpg') no-repeat;
+	  background-size: 100% auto;
+	  &:hover{
+		height: 300px;
+		width: 300px;
 	  }
 	}
-
   }
 }
+/* MAIN END*/
+
+/* FOOTER */
+footer{
+  display: none;
+  height: 200px;
+  background-color: rgb(192, 57, 0);
+  border-top: 2px solid @blue;
+	#footer-wrap{
+	  	width: @page-width;
+		margin: 0 auto;
+	}
+}
+/* FOOTER END*/
